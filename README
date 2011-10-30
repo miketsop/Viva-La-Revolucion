@@ -1,1 +1,78 @@
-Blakans
+MATLAB FS11 – Research Plan
+
+Governments, Civilians, and the Evolution of Insurgency:
+Modeling the Early Dynamics of Insurgencies
+
+
+Document Version: 1.1
+Group Name: Viva La Revolución
+Group participants names:   
+
+Kouzoupis Dimitrios
+Rozou Maria
+Tsopelas Michail
+
+
+General Introduction
+
+
+Nowadays, given the global recession and the social injustice, the quality of life index has decreased dramatically. This results in an increasing number of social movements, which result in revolutionary acts. Thus, simulating this phenomenon and especially its early stages, could give us an insight into the outcome of an insurgency. Moreover, we discuss the problem from the government’s point of view; that is, how they can effectively (quickly and with as little collateral damage as possible) deal with such insurgencies.
+
+Some real world examples include:
+
+•	Revolution in Syria.
+•	Involvement of USA in Iraq.
+
+	
+Since the beginning of civilization, groups of people wishing to impose their own agenda, frequently rebel against the established government. The way governments usually respond to these attacks is critical to the outcome of the insurgence. On the one hand, it’s important to suppress the rebels as quickly as possible, but on the other hand, violent suppression methods might increase collateral damage and thus generate more insurgents. The latter could result in a prolonged insurgence and even failure of the government in suppressing the rebels. 
+
+Research suggests that avoiding collateral damage is more important for the long-term defeat of insurgency, than the effectiveness of capturing insurgents in any given counterattack. There also may be a threshold for accuracy below which the length of insurgencies increases dramatically.
+
+
+Fundamental Questions
+
+(At the end of the project you want to find the answer to these questions)
+(Formulate a few, clear questions. Articulate them in sub-questions, from the more general to the more specific. )
+(Define dependent and independent variables you want to study. Say how you want to measure them.)
+•	How can governments effectively deal with insurgencies?
+o	How critical is the use of violence and the quality of soldiers to the suppression of an insurgency?
+	Ratio of effectiveness/accuracy of government forces.
+•	How can insurgents emerge victorious?
+o	How does the history of a country and the current quality of life affect the tendency of civilians to become rebels?
+o	How do civilians perceive and react to insurgencies?
+	Connections between anger and fear level and violence threshold (natural tendency to rebel).
+•	Experimentation with different ways of information diffusion. 
+o	Value of media. How can media affect the outcome of an insurgency.
+	Agent acts, affect all civilians and not only the close ones. Media can distort true events.
+•	Fear and anger levels change for all the population of citizens, after an attack.
+o	Instead of media, use a wider neighborhood where civilians are affected by events. Furthermore, anger and fear levels increase for all civilians in that neighborhood and not only for those injured.
+o	Civilians have a very small probability of dying after a counterattack. This event would cause a dramatic increase on the fear/anger levels of nearby (or further away) citizens. In such a case, we replace the dead civilian.
+•	Different parameters (effectiveness/accuracy) for each soldier. This is done in order to more accurately simulate the real world. 
+o	How does variance in those parameters between individual soldiers, affect the outcome of an insurgency.
+•	Civilians have different backgrounds and social status. Insurgencies affect them in different way.
+o	Create three different social classes of citizens, mainly based on their wealth. Poor, middle class and wealthy class. 
+	Different modifiers for each class. How can those differences affect the outcome of insurgencies?
+•	Add terrain modifiers for effectiveness/accuracy of soldiers.
+•	Add propaganda actions for the insurgents.
+
+
+Expected Results
+
+Based on the results of simulations presented in several papers, it is evident that reducing collateral damage by government forces is much more critical in the suppression of the insurgency, than the effectiveness with which these forces kill/neutralize rebels. What we can also expect from a rebel’s point of view, is that the more inclined civilians are to join an insurgence (either through a low violence threshold or a low fear rating), the greater chances are of an insurgency succeeding.
+
+
+
+
+References 
+
+Bennett, D. Scott (). 'Governments, Civilians, and the Evolution of Insurgency: Modeling the Early Dynamics of Insurgencies'. Journal of Artificial Societies and Social Simulation 
+
+
+Research Methods
+
+Agent Based Model.
+
+
+Other
+
+We are planning to start our project by implementing Bennett’s simulation and then start expanding the model according to the questions we’ve raised in the previous section. Implementation issues and the importance of each expansion will be weighted in order to decide what is really needed in order to get a more accurate model.
