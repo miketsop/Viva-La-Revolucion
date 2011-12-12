@@ -81,52 +81,139 @@ global Soldiers
 global AttackGrid       % range insurgent attack
 global CollateralGrid   % range of soldier counterattack
 global InfluenceGrid    % range of spread of fear ana anger after counter attack.
+global percent
+global maxStep
 
+global afterlife            % added global variable for replacement!!!!!
+global switchPosition
 
+%   Miscellaneous parameters
+switchPosition = 0;
+afterlife = 0;
 
+maxStep = 5000;
+percent = 0.35;
+
+%   World parameters
 nos = 100;
 noc = 500;
 gridSize = 50;
 
-effectiveness = 0.5;
-accuracy      = 0.2;
+%   Soldier parameters
+effectiveness = 0.8;    % This is not constant! The soldiers are not completely identical in our simulations
+accuracy      = 0.1;
 sensitivity   = 1;
 
-AttackGrid     = 3;     % All grid sizes must be odd numbers
-CollateralGrid = 5;
-InfluenceGrid  = 3;
+%   Interaction Parameters(All grid sizes must be odd numbers)
+AttackGrid     = 7;
+CollateralGrid = 7;
+InfluenceGrid  = 7;
 
-world = createWorld();      % World matrix:
+[active,latent,civilians,deaths,attacks,timeSteps,status] = completeSimulation();
 
-[Civilians,Soldiers] = populateWorld();     % Assign coordinates to human structures
+figure;
+plot(1:timeSteps,active(1:timeSteps),'r',1:timeSteps,latent(1:timeSteps),'c',1:timeSteps,attacks(1:timeSteps),'b',1:timeSteps,deaths(1:timeSteps),'m');
+hold on
+if afterlife == 1
+    legend('# of active insurgents','# of latent insurgents','# of attacks','# of deaths')
+else
+    plot(1:timeSteps,civilians(1:timeSteps),'y');
+    legend('# of active insurgents','# of latent insurgents','# of attacks','# of deaths','# of civilians')
+end
 
-updateWorld()
-
-displayWorld;
-
-maxStep = 300;
-
-
-
-% Statistics variables:
-
-rebels    = zeros(1,maxStep);
-rebels(1) = length(find(world(:,:,1)>4));
-
-for i = 1:maxStep
+%% REPETITIVE SIMULATIONS
+simulations = [];
+for eff = 0.1:0.1:1
     
-    simulate2();
-    displayWorld
-    %pause(0.1)
+    effectiveness = eff
     
-    rebels(i) = length(find(world(:,:,1)>4));
+    for acc = 0:0.1:1
+        
+        acc
+        accuracy = acc;
+        nos = 100;
+        noc = 500;
+        [active,latent,civilians,deaths,attacks,timeSteps,status] = completeSimulation();
+        simulations(end+1,:) = [timeSteps acc eff];
+        
+    end
     
 end
 
-    
-plot((1:maxStep)',rebels)
-    
+[X,Y] = meshgrid(0.1:0.1:1,0:0.1:1);
+tmp = zeros(11,10);
+s = 1;
+t = 11;
+for i=1:10
+    tmp(:,i) = simulations(s:t,1);
+    s = t;
+    t = i*11+1;
+end
 
 
 
-
+% 
+% simulations = [];
+% 
+% for eff = 0:0.1:1
+%     
+%     effectiveness = eff;
+%     
+%     for acc = 0:0.1:1
+%         
+%         %         clear world;
+%         %         clear Soldiers;
+%         %         clear Civilians;
+%         
+%         NumberOfAttacks = zeros(1,maxStep);
+%         
+%         accuracy = acc;
+%         
+%         %%%%%%%
+%         
+%         nos = 100;
+%         noc = 500;
+%         
+%         
+%         world = createWorld();
+%         
+%         [Civilians,Soldiers] = populateWorld();
+%         
+%         updateWorld()
+%         
+%         fprintf('Simulation number:%d\n',10*(eff*10+1)+acc*10+1)
+%         
+%         for i = 1:maxStep
+%             
+%             [flag] = simulate2();
+%             
+%             Latent = length(find(world(:,:,1)==5))
+%             i
+%             % Conditions to end simulation earlier
+%             
+%             if flag == 1;
+%                 NumberOfAttacks(i+1) = NumberOfAttacks(i)+1;
+%             else
+%                 NumberOfAttacks(i+1) = NumberOfAttacks(i);
+%             end
+%             
+%             if mod(i,10) == 0 && i>10
+%                 if NumberOfAttacks(i) == NumberOfAttacks(i-10);
+%                     break
+%                 end
+%             end
+%             
+%             if Latent == 0
+%                 break;
+%             end
+%             
+%         end
+%         
+%         simulations(end+1,:) = [i acc eff];
+%         
+%         
+%     end
+%     
+% end
+% 
+% 

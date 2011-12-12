@@ -9,8 +9,10 @@ global effectiveness
 global accuracy
 global sensitivity
 
-stde = 0.05;
-stda = 0.05;
+% stde = 0.05^2;
+% stda = 0.05^2;
+stde = 0;
+stda = 0;
 
 S.effectiveness = gsample(effectiveness, stde, 1);
 S.accuracy      = gsample(accuracy,      stda, 1);

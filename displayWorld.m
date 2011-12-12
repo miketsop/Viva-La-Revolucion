@@ -3,6 +3,7 @@ function displayWorld()
 %   Detailed explanation goes here
 
 global world
+
 persistent cmap
 
 if isempty(cmap)

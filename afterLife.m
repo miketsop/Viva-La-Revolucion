@@ -28,7 +28,9 @@ if belief == 0
     
     tempWorld(tempWorld > player) = tempWorld(tempWorld > player)-1;
     world(:,:,2) = tempWorld;
-     
+    
+    world(x,y,1) = 1;       % added on 12/11/2011
+    
 elseif belief == 1
     
     while 1

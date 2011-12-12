@@ -3,34 +3,35 @@ function [C] = civilian(x,y)
 %CIVILAN    Summary of this function goes here
 %           
 
-%% Parameters of gaussian distributions:
+%%  Parameters of gaussian distributions:
+%   WARNING:  changed std1x to accurately reflect STD
 
-% Rich
+%   Rich
 
 mean1a = 0.15;
-std1a  = 0.125;
+std1a  = 0.125^2;
 mean1f = 0.7;
-std1f  = 0.25;
+std1f  = 0.25^2;
 mean1t = 0.8;
-std1t  = 0.25;
+std1t  = 0.25^2;
 
 % Middle
 
 mean2a = 0.25;
-std2a  = 0.125;
+std2a  = 0.125^2;       
 mean2f = 0.5;
-std2f  = 0.25;
+std2f  = 0.25^2;
 mean2t = 0.5;
-std2t  = 0.25;
+std2t  = 0.25^2;
 
 % Poor
 
 mean3a = 0.45;
-std3a  = 0.125;
+std3a  = 0.125^2;
 mean3f = 0.2;
-std3f  = 0.25;
+std3f  = 0.25^2;
 mean3t = 0.4;
-std3t  = 0.25;
+std3t  = 0.25^2;
 
 %% Creating civilian
 
